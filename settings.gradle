@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TugedeongjilProject"
 include ':app'
+include ':domain'
+include ':data'
