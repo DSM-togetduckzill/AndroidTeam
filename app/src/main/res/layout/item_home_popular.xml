@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="75dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_item_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_item_home_top_num"
+        style="@style/text_gray_medium_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="20명"
+        android:textColor="@color/orange"
+        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toTopOf="@+id/cardView2" />
+
+    <TextView
+        style="@style/text_gray_medium_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이 선택한"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_home_top_num"
+        app:layout_constraintStart_toEndOf="@+id/tv_item_home_top_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_home_top_num" />
+
+    <TextView
+        android:id="@+id/tv_item_home_bottom"
+        style="@style/text_black_bold_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스파이더맨"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_item_home_top_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_home_top_num" />
+
+    <Button
+        android:id="@+id/btn_item_main"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:text="참여"
+        android:textColor="#938C82"
+        android:textSize="12sp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/item_home_popular_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
