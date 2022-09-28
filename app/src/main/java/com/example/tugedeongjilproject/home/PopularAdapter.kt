@@ -12,7 +12,7 @@ import com.example.tugedeongjilproject.R
 
 class PopularAdapter(private val context: Context, private val popularList: List<HomeData>?): BaseAdapter() {
 
-    @SuppressLint("ViewHolder", "InflateParams")
+    @SuppressLint("ViewHolder", "InflateParams", "SetTextI18n")
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         val view: View = LayoutInflater.from(context).inflate(R.layout.item_home_popular,null)
 
@@ -20,7 +20,7 @@ class PopularAdapter(private val context: Context, private val popularList: List
         val tvItemMainBottom = view.findViewById<TextView>(R.id.tv_item_home_bottom)
         val btnItemMain = view.findViewById<Button>(R.id.btn_item_main)
 
-        tvItemMainTopNum.text = popularList!![p0].num.toString()
+        tvItemMainTopNum.text = popularList!![p0].num.toString()+"명"
         tvItemMainBottom.text = popularList[p0].name
 
         btnItemMain.setOnClickListener {
