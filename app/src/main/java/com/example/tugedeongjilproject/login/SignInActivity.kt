@@ -1,10 +1,11 @@
 package com.example.tugedeongjilproject.login
 
+import android.content.Intent
 import android.graphics.Paint
-import android.view.WindowManager
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivitySignInBinding
+import com.example.tugedeongjilproject.main.MainActivity
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
     override fun initView() {
@@ -16,7 +17,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             tvSignUp.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
             btnSignIn.setOnClickListener {
-
+                startActivity(Intent(this@SignInActivity, MainActivity::class.java))
             }
 
             tvSignUp.setOnClickListener {
