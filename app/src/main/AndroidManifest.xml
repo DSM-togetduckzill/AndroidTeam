@@ -14,6 +14,13 @@
         android:theme="@style/Theme.TugedeongjilProject"
         tools:targetApi="31">
         <activity
+            android:name=".WebViewHelperActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".main.MainActivity"
             android:exported="false">
             <meta-data
