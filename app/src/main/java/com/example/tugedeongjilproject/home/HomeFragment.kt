@@ -1,5 +1,6 @@
 package com.example.tugedeongjilproject.home
 
+import android.content.Intent
 import android.graphics.Color
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -41,7 +42,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
             mainFirstLayout.setOnClickListener {
-
+                startActivity(Intent(requireActivity(),EnterRoomActivity::class.java))
             }
             mainSecondLayout.setOnClickListener {
 
