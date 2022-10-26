@@ -25,6 +25,7 @@ fun webViewSetting(
         }
 
         settings.run {
+            allowFileAccess = true
             javaScriptEnabled = true
         }
 
