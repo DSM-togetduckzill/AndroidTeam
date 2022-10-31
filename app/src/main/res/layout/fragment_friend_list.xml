@@ -43,9 +43,13 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_ready"
+            android:id="@+id/rv_friend"
             style="@style/chat_list"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_friend" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
