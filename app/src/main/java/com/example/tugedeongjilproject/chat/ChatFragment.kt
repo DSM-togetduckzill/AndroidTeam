@@ -1,6 +1,9 @@
 package com.example.tugedeongjilproject.chat
 
+import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.ListView
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
@@ -49,6 +52,7 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
         binding.run {
             listReady.adapter = readyAdapter
             setListViewHeight(listReady)
+            //listReady.layoutParams = LinearLayout.LayoutParams(328,300)
 
             listNoName.adapter = noNameAdapter
             setListViewHeight(listNoName)
@@ -70,12 +74,12 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
         for(i in 0 until listAdapter.count){
             val listItem = listAdapter.getView(i,null,listView)
             listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
-            totalHeight += listItem.measuredHeight
+            totalHeight += listItem.measuredHeight-80
+            Log.d("TAG", "setListViewHeight: $totalHeight")
         }
+        val params: ViewGroup.LayoutParams = listView.layoutParams
 
-        val params = listView.layoutParams
-
-        params.height = totalHeight + (listView.dividerHeight *(listAdapter.count -1))
+        params.height = totalHeight
         listView.layoutParams = params
 
         listView.requestLayout()
