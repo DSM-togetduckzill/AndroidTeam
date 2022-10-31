@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.tugedeongjilproject.chat.ChatAdapter
 import com.example.tugedeongjilproject.chat.ChatFragment
+import com.example.tugedeongjilproject.friend.FriendListFragment
 import com.example.tugedeongjilproject.home.HomeFragment
 
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment){
@@ -14,7 +15,7 @@ class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragme
         return when(position){
             0 -> HomeFragment()
             1 -> ChatFragment()
-            2 -> HomeFragment()
+            2 -> FriendListFragment()
             else -> HomeFragment()
         }
     }
