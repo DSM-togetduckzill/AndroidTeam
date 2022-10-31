@@ -13,18 +13,14 @@ import android.webkit.JavascriptInterface
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivitySignUpBinding
 import com.example.tugedeongjilproject.login.SignInActivity
 import com.example.tugedeongjilproject.util.webViewSetting
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.ByteArrayOutputStream
+import kotlinx.coroutines.delay
 import java.io.File
-import java.io.InputStream
-import java.lang.Exception
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up){
 
@@ -54,6 +50,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     class WebAppInterface(signUpActivity: SignUpActivity){
         private val signUpActivity = signUpActivity
         private var imageFile : String? = null
+        //private val imageFile: MutableLiveData<String>? = null
 
         @JavascriptInterface
         fun signUpNext(){
@@ -62,11 +59,14 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
 
         @JavascriptInterface
         fun getImage(): String?{
-            selectGallery()
-            return imageFile
+            return selectGallery()
         }
 
-        private fun selectGallery(){
+        private fun returnString(): String{
+            return ""
+        }
+
+        private fun selectGallery(): String{
             val writePermission = ContextCompat.checkSelfPermission(
                 signUpActivity,Manifest.permission.WRITE_EXTERNAL_STORAGE
             )
@@ -79,6 +79,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 ActivityCompat.requestPermissions(signUpActivity,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE), REQ_GALLERY)
+                return returnString()
             } else {
                 val intent = Intent(Intent.ACTION_PICK)
                 intent.setDataAndType(
@@ -86,9 +87,11 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     "image/*"
                 )
 
+                return returnString()
                 imageResult.launch(intent)
             }
         }
+
         private val imageResult = signUpActivity.registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ){ result ->
@@ -97,6 +100,21 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 val imageUri = result.data?.data
                 imageUri?.let{
                      imageFile = getRealPathFromURI(it)
+                }
+            }
+        }
+
+        private fun getImageResult() = signUpActivity.registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ){
+            signUpActivity.registerForActivityResult(
+                ActivityResultContracts.StartActivityForResult()
+            ){result ->
+                if(result.resultCode == RESULT_OK) {
+                    val imageUri = result.data?.data
+                    imageUri?.let{
+                        imageFile = getRealPathFromURI(it)
+                    }
                 }
             }
         }
@@ -132,35 +150,4 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         const val PARAM_KEY_REVIEW = "review_content"
         const val PARAM_KEY_RATING = "rating"
     }
-
-    private val imageResult = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ){ result ->
-
-        if(result.resultCode == RESULT_OK) {
-            val imageUri = result.data?.data
-
-            imageUri?.let {
-                imageFile = File(getRealPathFromURI(it))
-            }
-        }
-    }
-
-    private fun getRealPathFromURI(uri: Uri): String{
-        val buildName = Build.MANUFACTURER
-        if(buildName.equals("Xiaomi")) {
-            return uri.path!!
-        }
-        var columnIndex = 0
-        val proj = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor = contentResolver.query(uri, proj, null, null, null)
-        if(cursor!!.moveToFirst()) {
-            columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-        }
-        val result = cursor.getString(columnIndex)
-        cursor.close()
-
-        return result
-    }
-
 }
