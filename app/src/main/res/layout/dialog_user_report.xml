@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/dialog_title"
+        android:gravity="center"
+        android:layout_marginBottom="15dp"
+        tools:text="신고하시겠습니까?" />
+
+    <TextView
+        android:id="@+id/confirmTextView"
+        style="@style/dialog_content"
+        android:gravity="center"
+        tools:text="상대방을 신고하면 대화 내용 검토 후 신고 처리 됩니다." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/noButton"
+            android:background="@drawable/dialog_btn_gray"
+            android:layout_width="122dp"
+            android:layout_height="59dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="취소"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/yesButton"
+            android:background="@drawable/dialog_btn_orange"
+            android:layout_width="122dp"
+            android:layout_height="59dp"
+            android:layout_weight="1"
+            android:text="확인"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>
