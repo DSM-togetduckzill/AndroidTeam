@@ -29,7 +29,22 @@ fun webViewSetting(
             javaScriptEnabled = true
         }
 
-
+        evaluateJavascript("",null)
         loadUrl(url)
     }
+}
+
+fun WebView.executeScript(
+    functionName: String,
+    params: List<Any> = emptyList(),
+    onResult: (value: String) -> Unit = {}
+){
+    val sb = StringBuilder()
+    sb.append("javascript:")
+        .append(functionName)
+        .append("(")
+        .append(params.joinToString(", "))
+        .append(")")
+    evaluateJavascript(sb.toString(),onResult)
+
 }
