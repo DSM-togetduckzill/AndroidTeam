@@ -4,34 +4,23 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
-import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import android.provider.MediaStore.Audio.Media
 import android.util.Base64
-import android.util.Log
 import android.webkit.JavascriptInterface
-import android.webkit.WebView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.MutableLiveData
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivitySignUpBinding
 import com.example.tugedeongjilproject.login.SignInActivity
-import com.example.tugedeongjilproject.util.executeScript
 import com.example.tugedeongjilproject.util.webViewSetting
-import kotlinx.coroutines.delay
 import java.io.ByteArrayOutputStream
-import java.io.File
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up){
-
-    //private lateinit var imageFile: File
 
     override fun initView() {
         val url = "https://togetduckzill-fontend.vercel.app/signup"
