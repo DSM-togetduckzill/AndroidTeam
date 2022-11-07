@@ -6,6 +6,7 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivitySignInBinding
 import com.example.tugedeongjilproject.main.MainActivity
+import com.example.tugedeongjilproject.signup.SignUpActivity
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
     override fun initView() {
@@ -21,7 +22,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             }
 
             tvSignUp.setOnClickListener {
-
+                startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
             }
         }
     }

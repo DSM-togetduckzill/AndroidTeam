@@ -21,14 +21,15 @@ abstract class BaseFragment <B: ViewDataBinding>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
-        observeEvent()
         initView()
+
+        observeEvent()
         return binding.root
     }
 
-    abstract fun observeEvent()
-
     abstract fun initView()
+
+    abstract fun observeEvent()
 
     fun showToast(msg: String) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
