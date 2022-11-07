@@ -14,6 +14,7 @@ import android.util.Base64
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -33,7 +34,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     //private lateinit var imageFile: File
 
     override fun initView() {
-        val url = "https://togetduckzill-fontend.vercel.app/"
+        val url = "https://togetduckzill-fontend.vercel.app/signup"
 
         binding.run {
             webViewSetting(webView, url)
@@ -46,7 +47,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 finish()
             }
         }
-
     }
 
     override fun observeEvent() {}
@@ -61,8 +61,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         signUpBinding: ActivitySignUpBinding
     ){
         private val signUpActivity = signUpActivity
-        private var imageFile : String? = null
-        private val getImage = "getImage"
         private lateinit var bitmap: Bitmap
 
         @JavascriptInterface
@@ -107,71 +105,40 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 val imageUri = result.data?.data
 
                 imageUri.let {
-                    if(Build.VERSION.SDK_INT < 28){
-                        bitmap = MediaStore.Images.Media.getBitmap(
+                    bitmap = if(Build.VERSION.SDK_INT < 28){
+                        MediaStore.Images.Media.getBitmap(
                             signUpActivity.contentResolver,
                             it
                         )
                     }else {
                         val source = ImageDecoder.createSource(signUpActivity.contentResolver,it!!)
-                        bitmap = ImageDecoder.decodeBitmap(source)
+                        ImageDecoder.decodeBitmap(source)
                     }
 
                 }
             }
 
-            signUpBinding.webView.evaluateJavascript("javascript:window.dispatchEvent(new CustomEvent(\"getImage\",{detail:\"${bitmapToBase64(bitmap).replace("\\r\\n|\\r|\\n|\\n\\r".toRegex(),"")}\"}))",null)
-
-//            signUpBinding.webView.executeScript(
-//                functionName = "window.dispatchEvent",
-//                params = listOf("new CustomEvent(\"getImage\",{detail:\"${bitmapToBase64(bitmap)}\"})")
-//            )
-//            signUpBinding.webView.executeScript(
-//                functionName = "window.dispatchEvent",
-//                params = listOf(imageFile!!)
-//            )
-
+            try {
+                signUpBinding.webView.evaluateJavascript("javascript:window.dispatchEvent(new CustomEvent(\"getImage\",{detail:\"${bitmap.toBase64().replace("\\r\\n|\\r|\\n|\\n\\r".toRegex(),"")}\"}))",null)
+            } catch (e: Exception){
+                Toast.makeText( signUpActivity,"사진을 선택해 주세요", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        private fun bitmapToBase64(bitmap: Bitmap): String{
+        private val DefaultQuality: Int = 100
+
+        private fun Bitmap.toBase64(): String {
             val byteArrayOutputStream = ByteArrayOutputStream()
 
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+            bitmap.compress(Bitmap.CompressFormat.PNG, DefaultQuality, byteArrayOutputStream)
 
             val byteArray = byteArrayOutputStream.toByteArray()
 
             return Base64.encodeToString(byteArray, 0)
         }
-
-//        private fun getRealPathFromURI(uri: Uri): String{
-//            val buildName = Build.MANUFACTURER
-//            if(buildName.equals("Xiaomi")) {
-//                return uri.path!!
-//            }
-//            var columnIndex = 0
-//            val proj = arrayOf(MediaStore.Images.Media.DATA)
-//            val cursor = signUpActivity.contentResolver.query(uri, proj, null, null, null)
-//            if(cursor!!.moveToFirst()) {
-//                columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-//            }
-//            val result = cursor.getString(columnIndex)
-//            cursor.close()
-//
-//            return result
-//        }
-//
-//        private fun byte2HexStr(byte: Byte){
-//            val sb = StringBuffer()
-//        }
     }
 
     companion object{
-        const val REVIEW_MIN_LENGTH = 10
         const val REQ_GALLERY = 1
-
-        const val PARAM_KEY_IMAGE = "image"
-        const val PARAM_KEY_PRODUCT_ID = "product_id"
-        const val PARAM_KEY_REVIEW = "review_content"
-        const val PARAM_KEY_RATING = "rating"
     }
 }
