@@ -10,9 +10,6 @@ import com.example.tugedeongjilproject.util.WebViewHelperActivity
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
     override fun initView() {
-
-        //window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-
         binding.run {
 
             tvSignUp.paintFlags = Paint.UNDERLINE_TEXT_FLAG
