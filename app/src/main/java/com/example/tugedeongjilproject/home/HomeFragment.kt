@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentHomeBinding
-import com.example.tugedeongjilproject.main.MainActivity
+import com.example.tugedeongjilproject.home.room.EnterRoomActivity
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
@@ -42,10 +42,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
             mainFirstLayout.setOnClickListener {
-                startActivity(Intent(requireActivity(),EnterRoomActivity::class.java))
             }
             mainSecondLayout.setOnClickListener {
-
+                startActivity(Intent(requireActivity(), EnterRoomActivity::class.java))
             }
         }
     }
