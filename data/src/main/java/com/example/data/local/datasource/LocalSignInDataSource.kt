@@ -1,12 +1,10 @@
-package com.example.domain.repository
+package com.example.data.local.datasource
 
 import com.example.domain.entity.SignInEntity
 
-interface SignInRepository {
+interface LocalSignInDataSource {
 
-    suspend fun signIn(signInEntity: SignInEntity)
-
-    suspend fun autoSignIn()
+    suspend fun autoSignIn(): SignInEntity
 
     suspend fun saveAutoSignIn(signInEntity: SignInEntity)
 

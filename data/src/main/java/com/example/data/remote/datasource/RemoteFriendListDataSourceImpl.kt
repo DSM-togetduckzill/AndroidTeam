@@ -2,7 +2,7 @@ package com.example.data.remote.datasource
 
 import com.example.data.remote.api.FriendListAPI
 import com.example.data.remote.error.ErrorHandler
-import com.example.data.remote.request.toParam
+import com.example.data.remote.response.toParam
 import com.example.domain.param.FriendListParam
 import javax.inject.Inject
 
