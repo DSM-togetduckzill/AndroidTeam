@@ -9,9 +9,11 @@ import com.example.domain.usecase.signin.DeleteAutoSignInUseCase
 import com.example.domain.usecase.signin.ChangeAutoSignInUseCase
 import com.example.domain.usecase.signin.SaveAutoSignInUseCase
 import com.example.domain.usecase.signin.SignInUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class SignInViewModel @Inject constructor(
     private val signInUseCase: SignInUseCase,
     private val saveAutoSignInUseCase: SaveAutoSignInUseCase,

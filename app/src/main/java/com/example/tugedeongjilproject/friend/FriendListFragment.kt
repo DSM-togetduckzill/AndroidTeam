@@ -1,10 +1,12 @@
 package com.example.tugedeongjilproject.friend
 
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentFriendListBinding
+import com.example.tugedeongjilproject.util.WebViewHeader
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -38,6 +38,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.1.1'
     }
+    packagingOptions {
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
@@ -45,7 +51,6 @@ dependencies {
     implementation project(":di")
     implementation project(':domain')
 
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
 
     implementation 'androidx.activity:activity-ktx:1.1.0'

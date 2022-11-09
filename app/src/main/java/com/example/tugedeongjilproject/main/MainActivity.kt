@@ -6,8 +6,9 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
-@Suppress("DEPRECATION")
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private var bottomNavigationView: BottomNavigationView? = null

@@ -8,7 +8,9 @@ import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivitySignInBinding
 import com.example.tugedeongjilproject.main.MainActivity
 import com.example.tugedeongjilproject.util.WebViewHelperActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
 
     private val signInViewModel: SignInViewModel by viewModels()

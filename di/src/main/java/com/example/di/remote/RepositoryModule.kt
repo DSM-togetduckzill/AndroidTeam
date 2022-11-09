@@ -1,7 +1,9 @@
 package com.example.di.remote
 
 import com.example.data.remote.repository.FriendListRepositoryImpl
+import com.example.data.remote.repository.SignInRepositoryImpl
 import com.example.domain.repository.FriendListRepository
+import com.example.domain.repository.SignInRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,4 +17,9 @@ abstract class RepositoryModule {
     abstract fun bindFriendListRepository(
         friendListRepositoryImpl: FriendListRepositoryImpl
     ): FriendListRepository
+
+    @Binds
+    abstract fun bindSignInRepository(
+        signInRepositoryImpl: SignInRepositoryImpl
+    ): SignInRepository
 }

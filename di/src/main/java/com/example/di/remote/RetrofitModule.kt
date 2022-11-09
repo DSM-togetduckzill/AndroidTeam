@@ -2,6 +2,7 @@ package com.example.di.remote
 
 import android.util.Log
 import com.example.data.remote.api.FriendListAPI
+import com.example.data.remote.api.SignInAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,6 +11,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -48,4 +50,11 @@ object RetrofitModule {
        retrofit: Retrofit
    ): FriendListAPI =
        retrofit.create(FriendListAPI::class.java)
+
+    @Singleton
+    @Provides
+    fun provideSignInApi(
+        retrofit: Retrofit
+    ): SignInAPI =
+        retrofit.create(SignInAPI::class.java)
 }

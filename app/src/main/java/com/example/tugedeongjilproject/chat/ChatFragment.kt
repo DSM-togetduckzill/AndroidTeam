@@ -3,7 +3,6 @@ package com.example.tugedeongjilproject.chat
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.ListView
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
