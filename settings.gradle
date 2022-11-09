@@ -16,3 +16,4 @@ rootProject.name = "TugedeongjilProject"
 include ':app'
 include ':domain'
 include ':data'
+include ':di'

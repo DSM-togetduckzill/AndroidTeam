@@ -27,7 +27,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
 
         binding.run {
             webViewSetting(webView, url)
-            webView.addJavascriptInterface(WebAppInterface(
+            webView.addJavascriptInterface(
+                WebAppInterface(
                 this@SignUpActivity,
                 this
             ),"android")
@@ -74,7 +75,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     readPermission == PackageManager.PERMISSION_DENIED){
                 ActivityCompat.requestPermissions(signUpActivity,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE), REQ_GALLERY)
+                Manifest.permission.READ_EXTERNAL_STORAGE), REQ_GALLERY
+                )
             } else {
                 val intent = Intent(Intent.ACTION_PICK)
                 intent.setDataAndType(
