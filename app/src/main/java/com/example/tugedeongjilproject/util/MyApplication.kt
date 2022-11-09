@@ -1,4 +1,4 @@
-package com.example.seonsijo.util
+package com.example.tugedeongjilproject.util
 
 import android.app.Application
 import android.content.Context
