@@ -18,6 +18,8 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -54,7 +56,7 @@ fun WebViewHeader(
     onBackPressed: () -> Unit,
     headerText: String,
     btnMenu: Boolean,
-    onMenuPressed: () -> Unit = {},
+    onMenuPressed: () -> Unit,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -125,5 +127,24 @@ class HeaderIcon private constructor(
 @Composable
 @Preview(showBackground = true)
 fun ShowWebViewHeader(){
-    WebViewHeader(btnBack = true, onBackPressed = {}, headerText = "채팅", btnMenu = true)
+    WebViewHeader(btnBack = true, onBackPressed = {}, headerText = "채팅", btnMenu = true, onMenuPressed = {})
+}
+
+fun ComposeView.webViewHeader(
+    btnBack: Boolean = false,
+    onBackPressed: () -> Unit = {},
+    headerText: String,
+    btnMenu: Boolean = false,
+    onMenuPressed: () -> Unit = {}
+){
+    setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+    setContent {
+        WebViewHeader(
+            btnBack = btnBack,
+            onBackPressed = onBackPressed,
+            headerText = headerText,
+            btnMenu = btnMenu,
+            onMenuPressed = onMenuPressed
+        )
+    }
 }

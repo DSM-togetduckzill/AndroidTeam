@@ -7,6 +7,7 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentFriendListBinding
 import com.example.tugedeongjilproject.util.WebViewHeader
+import com.example.tugedeongjilproject.util.webViewHeader
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,17 +25,7 @@ class FriendListFragment : BaseFragment<FragmentFriendListBinding>(R.layout.frag
                 layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
                 rvFriend.setHasFixedSize(true)
             }
-            composeView.apply {
-                setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-                setContent {
-                    WebViewHeader(
-                        btnBack = false,
-                        onBackPressed = {  },
-                        headerText = "친구",
-                        btnMenu = false
-                    )
-                }
-            }
+            composeView.webViewHeader(headerText = "친구")
         }
     }
 

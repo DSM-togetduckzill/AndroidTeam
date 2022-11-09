@@ -7,6 +7,7 @@ import android.widget.ListView
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentChatBinding
+import com.example.tugedeongjilproject.util.webViewHeader
 
 class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
 
@@ -49,9 +50,11 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
         val friendAdapter = ChatAdapter(requireContext(), friendList)
 
         binding.run {
+
+            composeView.webViewHeader(headerText = "채팅")
+
             listReady.adapter = readyAdapter
             setListViewHeight(listReady)
-            //listReady.layoutParams = LinearLayout.LayoutParams(328,300)
 
             listNoName.adapter = noNameAdapter
             setListViewHeight(listNoName)
