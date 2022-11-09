@@ -18,6 +18,9 @@ class FriendListAdapter(private val arrayList: ArrayList<FriendListData>): Recyc
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.tvItemChatTitle.text = arrayList[position].title
         holder.tvItemChatContent.text = arrayList[position].content
+        holder.view.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int = arrayList.size
@@ -26,6 +29,7 @@ class FriendListAdapter(private val arrayList: ArrayList<FriendListData>): Recyc
         val imgItemMain = itemView.findViewById<ImageView>(R.id.img_item_main)
         val tvItemChatTitle = itemView.findViewById<TextView>(R.id.tv_item_chat_title)
         val tvItemChatContent = itemView.findViewById<TextView>(R.id.tv_item_chat_content)
+        val view = itemView
     }
 
 }
