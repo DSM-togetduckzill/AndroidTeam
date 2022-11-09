@@ -5,9 +5,9 @@ import retrofit2.http.GET
 
 interface FriendListAPI {
 
-//    @GET("")
-//    suspend fun getFriendList(
-//    ): FriendListResponse
+    @GET("")
+    suspend fun getFriendList(
+    ): FriendListResponse
 
-    suspend fun getFriendList(): FriendListResponse
+   // suspend fun getFriendList(): FriendListResponse
 }

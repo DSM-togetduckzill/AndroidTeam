@@ -3,7 +3,7 @@
     package="com.example.di" >
 
     <uses-sdk
-        android:minSdkVersion="28"
+        android:minSdkVersion="26"
         android:targetSdkVersion="32" />
 
 </manifest>

@@ -3,7 +3,7 @@
 3    package="com.example.di" >
 4
 5    <uses-sdk
-6        android:minSdkVersion="28"
+6        android:minSdkVersion="26"
 6-->/Users/kimjunho/Desktop/github/AndroidTeam/di/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="32" />
 7-->/Users/kimjunho/Desktop/github/AndroidTeam/di/src/main/AndroidManifest.xml
