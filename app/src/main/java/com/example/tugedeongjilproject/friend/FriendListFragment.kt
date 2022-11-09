@@ -22,6 +22,17 @@ class FriendListFragment : BaseFragment<FragmentFriendListBinding>(R.layout.frag
                 layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
                 rvFriend.setHasFixedSize(true)
             }
+            composeView.apply {
+                setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+                setContent {
+                    WebViewHeader(
+                        btnBack = false,
+                        onBackPressed = {  },
+                        headerText = "친구",
+                        btnMenu = false
+                    )
+                }
+            }
         }
     }
 
