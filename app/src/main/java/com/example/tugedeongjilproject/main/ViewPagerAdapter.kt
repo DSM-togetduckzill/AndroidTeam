@@ -7,6 +7,7 @@ import com.example.tugedeongjilproject.chat.ChatAdapter
 import com.example.tugedeongjilproject.chat.ChatFragment
 import com.example.tugedeongjilproject.friend.FriendListFragment
 import com.example.tugedeongjilproject.home.HomeFragment
+import com.example.tugedeongjilproject.mypage.MypageFragment
 
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment){
     override fun getItemCount(): Int = 4
@@ -16,7 +17,7 @@ class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragme
             0 -> HomeFragment()
             1 -> ChatFragment()
             2 -> FriendListFragment()
-            else -> HomeFragment()
+            else -> MypageFragment()
         }
     }
 

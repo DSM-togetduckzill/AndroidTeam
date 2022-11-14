@@ -20,7 +20,14 @@
         tools:targetApi="31"
         android:name=".util.MyApplication">
         <activity
-            android:name=".home.room.EnterRoomActivity"
+            android:name=".profile.FriendActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".home.EnterRoomActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -49,6 +56,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

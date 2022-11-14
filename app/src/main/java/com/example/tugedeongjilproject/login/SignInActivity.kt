@@ -22,6 +22,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
             btnSignIn.setOnClickListener {
                 startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                finish()
             }
 
             tvSignUp.setOnClickListener {
