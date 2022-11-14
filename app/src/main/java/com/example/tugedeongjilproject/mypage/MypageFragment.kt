@@ -8,6 +8,7 @@ import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentMypageBinding
 import com.example.tugedeongjilproject.login.SignInActivity
 import com.example.tugedeongjilproject.main.MainActivity
+import com.example.tugedeongjilproject.util.webViewHeader
 
 class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage){
 
@@ -28,6 +29,8 @@ class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_myp
                 mainActivity.finish()
                 startActivity(intent)
             }
+
+            composeView.webViewHeader(headerText = "MY")
 
         }
     }
