@@ -75,4 +75,9 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="compose_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
 </resources>
