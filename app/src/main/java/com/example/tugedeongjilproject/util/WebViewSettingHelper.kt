@@ -46,6 +46,7 @@ fun webViewSetting(
             javaScriptEnabled = true
         }
 
+
         loadUrl(url)
     }
 }

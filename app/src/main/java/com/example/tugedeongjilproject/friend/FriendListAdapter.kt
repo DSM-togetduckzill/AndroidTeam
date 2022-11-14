@@ -8,7 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugedeongjilproject.R
 
-class FriendListAdapter(private val arrayList: ArrayList<FriendListData>): RecyclerView.Adapter<FriendListAdapter.CustomViewHolder>() {
+class FriendListAdapter(
+    private val arrayList: ArrayList<FriendListData>,
+    private val friendListFragment: FriendListFragment
+    ): RecyclerView.Adapter<FriendListAdapter.CustomViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_chat,parent,false)
@@ -19,7 +22,7 @@ class FriendListAdapter(private val arrayList: ArrayList<FriendListData>): Recyc
         holder.tvItemChatTitle.text = arrayList[position].title
         holder.tvItemChatContent.text = arrayList[position].content
         holder.view.setOnClickListener {
-
+            friendListFragment.startChat(holder.tvItemChatTitle.text.toString())
         }
     }
 

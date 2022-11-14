@@ -27,11 +27,13 @@ class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layou
                 webViewSetting(webView, url,this@WebViewHelperActivity)
             }
 
-            tvHeader.text = header
-
-            btnBack.setOnClickListener {
-                finish()
-            }
+            composeView.webViewHeader(
+                btnBack = backBoolean,
+                onBackPressed = { finish() },
+                headerText = header,
+                btnMenu = addBoolean,
+                onMenuPressed = {  }
+            )
         }
     }
 

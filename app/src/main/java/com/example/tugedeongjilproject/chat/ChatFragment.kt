@@ -1,5 +1,6 @@
 package com.example.tugedeongjilproject.chat
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.ListView
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentChatBinding
+import com.example.tugedeongjilproject.util.WebViewHelperActivity
 import com.example.tugedeongjilproject.util.webViewHeader
 
 class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
@@ -45,9 +47,9 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
         )
 
     override fun initView() {
-        val readyAdapter = ChatAdapter(requireContext(), readyList)
-        val noNameAdapter = ChatAdapter(requireContext(), noNameList)
-        val friendAdapter = ChatAdapter(requireContext(), friendList)
+        val readyAdapter = ChatAdapter(requireContext(), readyList, this)
+        val noNameAdapter = ChatAdapter(requireContext(), noNameList, this)
+        val friendAdapter = ChatAdapter(requireContext(), friendList, this)
 
         binding.run {
 
@@ -77,7 +79,6 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
             val listItem = listAdapter.getView(i,null,listView)
             listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
             totalHeight += listItem.measuredHeight-80
-            Log.d("TAG", "setListViewHeight: $totalHeight")
         }
         val params: ViewGroup.LayoutParams = listView.layoutParams
 
@@ -85,6 +86,14 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
         listView.layoutParams = params
 
         listView.requestLayout()
+    }
+
+    fun startChat(name: String){
+        val intent = Intent(requireContext(), WebViewHelperActivity::class.java)
+        intent.putExtra("url","https://togetduckzill-fontend.vercel.app/chat")
+        intent.putExtra("header",name)
+        intent.putExtra("add",true)
+        startActivity(intent)
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.tugedeongjilproject.friend
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,9 +16,9 @@ class FriendListViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _friendListSuccess: MutableLiveData<FriendListParam> = MutableLiveData()
-    val friendListSuccess: MutableLiveData<FriendListParam> = _friendListSuccess
+    val friendListSuccess: LiveData<FriendListParam> = _friendListSuccess
     private val _friendListFail: MutableLiveData<String> = MutableLiveData()
-    val friendListFail: MutableLiveData<String> = _friendListFail
+    val friendListFail: LiveData<String> = _friendListFail
 
     fun getFriendList(){
         viewModelScope.launch {

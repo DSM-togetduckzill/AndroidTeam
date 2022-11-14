@@ -12,7 +12,11 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.tugedeongjilproject.R
 
-class ChatAdapter(private val context: Context, private val chatList: List<ChatData>): BaseAdapter() {
+class ChatAdapter(
+    private val context: Context,
+    private val chatList: List<ChatData>,
+    private val chatFragment: ChatFragment
+    ): BaseAdapter() {
 
     @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
@@ -24,7 +28,7 @@ class ChatAdapter(private val context: Context, private val chatList: List<ChatD
         tvItemChatTitle.text = chatList[p0].title
         tvItemChatContent.text = chatList[p0].content
         view.setOnClickListener {
-
+            chatFragment.startChat(tvItemChatTitle.text.toString())
         }
 
         return view
