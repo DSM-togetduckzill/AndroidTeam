@@ -6,12 +6,15 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivityWebViewHelperBinding
 import com.example.tugedeongjilproject.login.SignInActivity
+import com.example.tugedeongjilproject.profile.FriendActivity
+import com.example.tugedeongjilproject.profile.UnknownActivity
 import kotlin.properties.Delegates
 
 class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layout.activity_web_view_helper){
 
     private lateinit var url: String
     private lateinit var header: String
+    private var unknown by Delegates.notNull<Boolean>()
     private var backBoolean by Delegates.notNull<Boolean>()
     private var addBoolean by Delegates.notNull<Boolean>()
 
@@ -19,8 +22,10 @@ class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layou
 
         url = intent.getStringExtra("url") ?: ""
         header = intent.getStringExtra("header") ?: ""
+        unknown = intent.getBooleanExtra("unknown", true)
         backBoolean = intent.getBooleanExtra("back",true)
         addBoolean = intent.getBooleanExtra("add",false)
+
 
         binding.run {
             if(url.isNotEmpty()){
@@ -32,7 +37,13 @@ class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layou
                 onBackPressed = { finish() },
                 headerText = header,
                 btnMenu = addBoolean,
-                onMenuPressed = {  }
+                onMenuPressed = {
+                    if(!unknown){
+                        startActivity(Intent(this@WebViewHelperActivity, UnknownActivity::class.java))
+                    } else {
+                        startActivity(Intent(this@WebViewHelperActivity, FriendActivity::class.java))
+                    }
+                }
             )
         }
     }
@@ -41,6 +52,10 @@ class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layou
 
     fun gotoLogin(){
         startActivity(Intent(this, SignInActivity::class.java))
+        finish()
+    }
+
+    fun makeRoomFinish() {
         finish()
     }
 
