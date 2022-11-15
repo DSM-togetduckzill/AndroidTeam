@@ -34,13 +34,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".home.EnterRoomActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".util.WebViewHelperActivity"
             android:exported="false">
             <meta-data

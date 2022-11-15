@@ -64,6 +64,11 @@ class WebAppInterface(
     }
 
     @JavascriptInterface
+    fun makeRoomFinish() {
+        webViewHelperActivity.makeRoomFinish()
+    }
+
+    @JavascriptInterface
     fun openGallery(){
         return selectGallery()
     }
