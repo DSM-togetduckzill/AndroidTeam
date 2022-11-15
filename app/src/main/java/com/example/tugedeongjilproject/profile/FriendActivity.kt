@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.tugedeongjilproject.databinding.FriendProfileBinding
 import com.example.tugedeongjilproject.dialog.CustomDialogFragment
+import com.example.tugedeongjilproject.util.webViewHeader
 
 
 class FriendActivity : AppCompatActivity() {
@@ -14,6 +15,8 @@ class FriendActivity : AppCompatActivity() {
 
         val binding = FriendProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val name = intent.getStringExtra("name") ?: ""
 
         binding.thirdBox.setOnClickListener {
             val dialog = CustomDialogFragment()
@@ -36,6 +39,10 @@ class FriendActivity : AppCompatActivity() {
             dialog.show(supportFragmentManager, "CustomDialog")
         }
 
-
+        binding.composeView.webViewHeader(
+            btnBack = true,
+            onBackPressed = { finish() },
+            headerText = name
+        )
     }
 }

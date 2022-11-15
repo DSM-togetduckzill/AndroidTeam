@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import com.example.tugedeongjilproject.databinding.UnknownProfileBinding
 import com.example.tugedeongjilproject.dialog.CustomDialogFragment
+import com.example.tugedeongjilproject.util.webViewHeader
 
 class UnknownActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,8 @@ class UnknownActivity : AppCompatActivity() {
 
         val dialog = CustomDialogFragment()
         val btn= arrayOf("취소","확인")
+
+        val name = intent.getStringExtra("name") ?: ""
 
         binding.secondBox.setOnClickListener {
             dialog.arguments= bundleOf(
@@ -52,5 +55,11 @@ class UnknownActivity : AppCompatActivity() {
             })
             dialog.show(supportFragmentManager, "CustomDialog")
         }
+
+        binding.composeView.webViewHeader(
+            btnBack = true,
+            onBackPressed = { finish() },
+            headerText = name
+        )
     }
 }
