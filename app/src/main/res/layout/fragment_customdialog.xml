@@ -13,13 +13,13 @@
         style="@style/dialog_title"
         android:gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
         tools:text="title" />
 
     <TextView
         android:id="@+id/content"
         style="@style/dialog_content"
         android:gravity="center"
+        android:layout_marginTop="15dp"
         tools:text="상세내용" />
 
     <LinearLayout
@@ -30,6 +30,7 @@
 
         <Button
             android:id="@+id/noButton"
+            style="@style/dialog_no"
             android:background="@drawable/dialog_btn_gray"
             android:layout_width="122dp"
             android:layout_height="59dp"
@@ -40,6 +41,7 @@
 
         <Button
             android:id="@+id/yesButton"
+            style="@style/dialog_yes"
             android:background="@drawable/dialog_btn_orange"
             android:layout_width="122dp"
             android:layout_height="59dp"
