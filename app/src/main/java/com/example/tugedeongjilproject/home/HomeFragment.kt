@@ -10,20 +10,25 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentHomeBinding
 import com.example.tugedeongjilproject.home.room.EnterRoomActivity
+import com.example.tugedeongjilproject.util.image.KIMUICHAN
+import com.example.tugedeongjilproject.util.image.SON
+import com.example.tugedeongjilproject.util.image.SPIDER_MAN
+import com.example.tugedeongjilproject.util.image.ZIBRI
+import com.example.tugedeongjilproject.util.image.loadImage
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val popularList = listOf(
-        HomeData(null,20,"스파이더맨"),
-        HomeData(null,10,"지브리"),
-        HomeData(null,5,"자프 화이팅!!")
+        HomeData(SPIDER_MAN,20,"스파이더맨"),
+        HomeData(ZIBRI,10,"지브리"),
+        HomeData(SON,5,"손흥민 화이팅!!")
     )
 
     private val newList = listOf(
-        HomeData(null,0,"지브라"),
-        HomeData(null,0,"지브라"),
-        HomeData(null,0,"지브라"),
-        HomeData(null,0,"지브라")
+        HomeData(KIMUICHAN,0,"김의찬"),
+        HomeData(null,1,"김준호"),
+        HomeData(null,2,"양지원"),
+        HomeData(null,3,"오정수")
     )
 
     override fun initView() {
@@ -46,6 +51,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             mainSecondLayout.setOnClickListener {
                 startActivity(Intent(requireActivity(), EnterRoomActivity::class.java))
             }
+
+            loadImage(imgMainFirst, SPIDER_MAN)
         }
     }
 

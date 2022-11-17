@@ -7,10 +7,12 @@ import android.view.View
 import android.view.View.MeasureSpec
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.tugedeongjilproject.R
+import com.example.tugedeongjilproject.util.image.loadImage
 
 class ChatAdapter(
     private val context: Context,
@@ -24,9 +26,12 @@ class ChatAdapter(
 
         val tvItemChatTitle: TextView = view.findViewById(R.id.tv_item_chat_title)
         val tvItemChatContent: TextView = view.findViewById(R.id.tv_item_chat_content)
+        val imgItemMain: ImageView = view.findViewById(R.id.img_item_main)
 
         tvItemChatTitle.text = chatList[p0].title
         tvItemChatContent.text = chatList[p0].content
+        loadImage(imgItemMain, chatList[p0].imageUrl)
+
         view.setOnClickListener {
             chatFragment.startChat(tvItemChatTitle.text.toString())
         }

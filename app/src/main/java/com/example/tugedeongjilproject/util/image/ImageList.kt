@@ -1,0 +1,15 @@
+package com.example.tugedeongjilproject.util.image
+
+const val SPIDER_MAN = "https://post-phinf.pstatic.net/MjAyMDEwMTRfMjQ2/MDAxNjAyNjUwMzQzMjUy.Hvj_0tnnqGvtqS1wv8GAnt27lvdsry0JALwxKpnufVIg.iGNVM-oym2XUFpC1NHEf_JmDAX6C6D2wPdx83TRshdsg.JPEG/spider-man-00.jpg?type=w1200"
+const val ZIBRI = "https://www.bizhankook.com/upload/bk/article/202003/thumb/19690-45330-sampleM.jpg"
+const val SON = "https://www.kukinews.com/data/kuk/image/2022/05/23/kuk202205230022.680x.0.jpg"
+const val KIMUICHAN = "https://scontent.xx.fbcdn.net/v/t1.15752-9/315287633_5768457503237785_5670059185674759609_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=aee45a&_nc_ohc=hlg9uGGZxfQAX9uLb3J&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSjbO_fuQ0ICIVtUfZNdUQFuU-Vpxb43OwafK8oLi4HFA&oe=639C1188"
+const val beomjoedosi = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpAgFlL1lYslwz1WxqFYo4C0dT1mQ2Tw1O2g&usqp=CAU"
+const val yungyesang = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Voq6fo6z6D6pxKWiUEocXS6zdNdSclUKWg&usqp=CAU"
+const val overwatch = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMhXug8A9hzIqb571202qLNgRlsqYIs5xanA&usqp=CAU"
+const val heart = "https://mblogthumb-phinf.pstatic.net/MjAxNjExMTRfMTE4/MDAxNDc5MTEwNTM4MTQ5.uN1lh-PeT1Y7nXfVL2tg3iE2qNqa1A6-UnZIR0UIt3Ig.d0gPMJrWUm71oq8UT38rlgFeE2yQ7zt7-_r86X-huCsg.JPEG.gloomysight/heart-01.jpg?type=w800"
+const val cat = "https://scontent.xx.fbcdn.net/v/t1.15752-9/315524864_440271848183640_6571672094659500624_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=aee45a&_nc_ohc=PEkRW7r1IGQAX9FeOqY&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRiPNlxNYRI1qAlbFGWcT_RftkhXs3rwvZa8EOGLQLbDQ&oe=639CE418"
+const val canner = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Empty_tin_can2009-01-19.jpg/220px-Empty_tin_can2009-01-19.jpg"
+const val masterE = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/MasterYi_10.jpg"
+const val angstart = "https://i.pinimg.com/originals/6f/97/5e/6f975e77f9f97aa29411ca14327fc5c9.png"
+const val buddha = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiosnHIAE7EjfLWNDdibSVR6T5FCtrRG61qQ&usqp=CAU"
