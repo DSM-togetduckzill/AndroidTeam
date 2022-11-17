@@ -1,14 +1,11 @@
 package com.example.tugedeongjilproject.friend
 
 import android.content.Intent
-import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
-import com.example.tugedeongjilproject.chat.ChatData
 import com.example.tugedeongjilproject.databinding.FragmentFriendListBinding
-import com.example.tugedeongjilproject.util.WebViewHeader
 import com.example.tugedeongjilproject.util.WebViewHelperActivity
 import com.example.tugedeongjilproject.util.image.buddha
 import com.example.tugedeongjilproject.util.image.canner

@@ -10,9 +10,12 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentHomeBinding
 import com.example.tugedeongjilproject.home.room.EnterRoomActivity
+import com.example.tugedeongjilproject.util.image.KIMJUNHO
 import com.example.tugedeongjilproject.util.image.KIMUICHAN
+import com.example.tugedeongjilproject.util.image.OHJEONGSU
 import com.example.tugedeongjilproject.util.image.SON
 import com.example.tugedeongjilproject.util.image.SPIDER_MAN
+import com.example.tugedeongjilproject.util.image.YANGJIWON
 import com.example.tugedeongjilproject.util.image.ZIBRI
 import com.example.tugedeongjilproject.util.image.loadImage
 
@@ -26,9 +29,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val newList = listOf(
         HomeData(KIMUICHAN,0,"김의찬"),
-        HomeData(null,1,"김준호"),
-        HomeData(null,2,"양지원"),
-        HomeData(null,3,"오정수")
+        HomeData(KIMJUNHO,1,"김준호"),
+        HomeData(YANGJIWON,2,"양지원"),
+        HomeData(OHJEONGSU,3,"오정수")
     )
 
     override fun initView() {

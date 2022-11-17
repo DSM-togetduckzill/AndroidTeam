@@ -1,7 +1,7 @@
 package com.example.tugedeongjilproject.util
 
 import android.content.Intent
-import android.webkit.WebViewClient
+import android.widget.Toast
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseActivity
 import com.example.tugedeongjilproject.databinding.ActivityWebViewHelperBinding
@@ -36,26 +36,26 @@ class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layou
                 btnBack = backBoolean,
                 onBackPressed = { finish() },
                 headerText = header,
-                btnMenu = addBoolean,
-                onMenuPressed = {
-                    if(!unknown){
-                        startActivity(Intent(this@WebViewHelperActivity, UnknownActivity::class.java))
-                    } else {
-                        startActivity(Intent(this@WebViewHelperActivity, FriendActivity::class.java))
-                    }
+                btnMenu = addBoolean
+            ) {
+                if (!unknown) {
+                    startActivity(Intent(this@WebViewHelperActivity, UnknownActivity::class.java))
+                } else {
+                    startActivity(Intent(this@WebViewHelperActivity, FriendActivity::class.java))
                 }
-            )
+            }
         }
     }
 
     override fun observeEvent() {}
 
     fun gotoLogin(){
-        startActivity(Intent(this, SignInActivity::class.java))
+        showToastShort("회원가입을 성공했습니다")
         finish()
     }
 
     fun makeRoomFinish() {
+        showToastShort("방 생성을 성공했습니다")
         finish()
     }
 

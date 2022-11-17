@@ -1,11 +1,8 @@
 package com.example.tugedeongjilproject.chat
 
 import android.content.Intent
-import android.util.Log
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import androidx.core.view.size
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentChatBinding
