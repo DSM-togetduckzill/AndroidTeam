@@ -1,11 +1,13 @@
 package com.example.tugedeongjilproject.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import com.example.tugedeongjilproject.databinding.UnknownProfileBinding
 import com.example.tugedeongjilproject.dialog.CustomDialogFragment
+import com.example.tugedeongjilproject.main.MainActivity
 import com.example.tugedeongjilproject.util.webViewHeader
 
 class UnknownActivity : AppCompatActivity() {
@@ -16,6 +18,7 @@ class UnknownActivity : AppCompatActivity() {
 
         val dialog = CustomDialogFragment()
         val btn= arrayOf("취소","확인")
+        var intent = Intent(this,MainActivity ::class.java)
 
         val name = intent.getStringExtra("name") ?: ""
 
@@ -32,6 +35,7 @@ class UnknownActivity : AppCompatActivity() {
                 override fun onButton2Clicked() {
                     //확인
                     //친구프로필로 전환
+                    Toast.makeText(this@UnknownActivity, "친구가 되었습니다!", Toast.LENGTH_SHORT).show()
                 }
             })
             dialog.show(supportFragmentManager, "CustomDialog")
@@ -88,7 +92,8 @@ class UnknownActivity : AppCompatActivity() {
                 override fun onButton2Clicked() {
                     //확인
                     //익명 채팅 목록에서 삭제
-                    Toast.makeText(this@UnknownActivity, "차단되었습니다.", Toast.LENGTH_SHORT).show()
+                    finishAffinity()
+                    startActivity(intent)
                 }
             })
             dialog.show(supportFragmentManager, "CustomDialog")
