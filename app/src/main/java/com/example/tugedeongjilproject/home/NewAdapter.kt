@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugedeongjilproject.R
+import com.example.tugedeongjilproject.util.image.loadImage
 
 class NewAdapter(private val newList: List<HomeData>?): RecyclerView.Adapter<NewAdapter.CustomViewHolder>() {
 
@@ -18,7 +19,7 @@ class NewAdapter(private val newList: List<HomeData>?): RecyclerView.Adapter<New
 
     override fun onBindViewHolder(holder: NewAdapter.CustomViewHolder, position: Int) {
         holder.tvItemNew.text = newList!![position].name
-        holder.imgItemNew
+        loadImage(holder.imgItemNew, newList[position].imageUrl)
 
         holder.itemHomeNew.setOnClickListener {
 

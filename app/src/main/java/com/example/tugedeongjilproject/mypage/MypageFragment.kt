@@ -1,8 +1,6 @@
 package com.example.tugedeongjilproject.mypage
 
 import android.content.Intent
-import androidx.core.app.ActivityCompat.finishAffinity
-import androidx.core.os.bundleOf
 import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentMypageBinding

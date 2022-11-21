@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugedeongjilproject.R
+import com.example.tugedeongjilproject.util.image.loadImage
 
 class FriendListAdapter(
     private val arrayList: ArrayList<FriendListData>,
@@ -21,6 +22,7 @@ class FriendListAdapter(
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.tvItemChatTitle.text = arrayList[position].title
         holder.tvItemChatContent.text = arrayList[position].content
+        loadImage(holder.imgItemMain, arrayList[position].imageUrl)
         holder.view.setOnClickListener {
             friendListFragment.startChat(holder.tvItemChatTitle.text.toString())
         }
