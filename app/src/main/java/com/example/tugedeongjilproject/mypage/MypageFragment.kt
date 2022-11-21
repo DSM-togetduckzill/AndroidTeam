@@ -6,10 +6,12 @@ import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentMypageBinding
 import com.example.tugedeongjilproject.login.SignInActivity
 import com.example.tugedeongjilproject.main.MainActivity
+import com.example.tugedeongjilproject.util.WebViewHelperActivity
+import com.example.tugedeongjilproject.util.image.KIMJUNHO
+import com.example.tugedeongjilproject.util.image.loadImage
 import com.example.tugedeongjilproject.util.webViewHeader
 
 class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage){
-
 
     override fun initView() {
 
@@ -18,7 +20,11 @@ class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_myp
         binding.run {
 
             secondBox.setOnClickListener {
-                // 프로필 수정 화면 띄우기
+                val intent = Intent(requireContext(), WebViewHelperActivity::class.java)
+                intent
+                    .putExtra("url","https://togetduckzill-fontend.vercel.app/modify_profile")
+                    .putExtra("header","프로필 수정").putExtra("","")
+                startActivity(intent)
             }
 
             thirdBox.setOnClickListener {
@@ -27,6 +33,8 @@ class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_myp
                 mainActivity.finish()
                 startActivity(intent)
             }
+
+            loadImage(imageView, KIMJUNHO)
 
             composeView.webViewHeader(headerText = "MY")
 

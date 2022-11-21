@@ -38,7 +38,7 @@ class WebViewHelperActivity : BaseActivity<ActivityWebViewHelperBinding>(R.layou
                 headerText = header,
                 btnMenu = addBoolean
             ) {
-                if (!unknown) {
+                if (unknown) {
                     startActivity(Intent(this@WebViewHelperActivity, UnknownActivity::class.java))
                 } else {
                     startActivity(Intent(this@WebViewHelperActivity, FriendActivity::class.java))

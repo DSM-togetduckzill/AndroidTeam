@@ -17,7 +17,9 @@ import com.example.tugedeongjilproject.util.image.loadImage
 class ChatAdapter(
     private val context: Context,
     private val chatList: List<ChatData>,
-    private val chatFragment: ChatFragment
+    private val chatFragment: ChatFragment,
+    private val clickable: Boolean = true,
+    private val unknown: Boolean = true
     ): BaseAdapter() {
 
     @SuppressLint("ViewHolder", "InflateParams")
@@ -32,9 +34,12 @@ class ChatAdapter(
         tvItemChatContent.text = chatList[p0].content
         loadImage(imgItemMain, chatList[p0].imageUrl)
 
-        view.setOnClickListener {
-            chatFragment.startChat(tvItemChatTitle.text.toString())
+        if(clickable){
+            view.setOnClickListener {
+                chatFragment.startChat(tvItemChatTitle.text.toString(),unknown)
+            }
         }
+
 
         return view
     }

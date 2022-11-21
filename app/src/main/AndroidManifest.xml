@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TugedeongjilProject"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:screenOrientation="portrait">
+
         <activity
             android:name=".splash.Splash"
             android:exported="true">
@@ -29,6 +31,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".profile.UnknownActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
             android:name=".home.room.EnterRoomActivity"
