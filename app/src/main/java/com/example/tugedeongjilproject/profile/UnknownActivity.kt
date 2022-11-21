@@ -75,7 +75,7 @@ class UnknownActivity : AppCompatActivity() {
             dialog.show(supportFragmentManager, "CustomDialog")
         }
 
-        binding.forthBox.setOnClickListener {
+        binding.fifthBox.setOnClickListener {
             dialog.arguments= bundleOf(
                 "title" to "채팅방을 나가시겠습니까?",
                 "context" to "나가기를 하면 대화내용이 모두 삭제되고 채팅목록에서도 삭제됩니다.",
