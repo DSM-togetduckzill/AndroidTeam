@@ -8,19 +8,22 @@ import com.example.tugedeongjilproject.databinding.FriendProfileBinding
 import com.example.tugedeongjilproject.dialog.CustomDialogFragment
 import com.example.tugedeongjilproject.util.webViewHeader
 
-
 class FriendActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val binding = FriendProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val dialog = CustomDialogFragment()
+        val btn= arrayOf("취소","확인")
+
         val name = intent.getStringExtra("name") ?: ""
 
+        binding.secondBox.setOnClickListener {
+            // 해당 유저의 채팅방으로 이동
+        }
+
         binding.thirdBox.setOnClickListener {
-            val dialog = CustomDialogFragment()
-            val btn= arrayOf("취소","확인")
             dialog.arguments= bundleOf(
                 "title" to "삭제하시겠습니까?",
                 "context" to "친구를 삭제하면 더이상 채팅을 할 수 없습니다.",
