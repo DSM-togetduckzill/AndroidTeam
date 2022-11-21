@@ -8,6 +8,7 @@ import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentChatBinding
 import com.example.tugedeongjilproject.util.WebViewHelperActivity
 import com.example.tugedeongjilproject.util.image.SON
+import com.example.tugedeongjilproject.util.image.SPIDER_MAN2
 import com.example.tugedeongjilproject.util.image.angstart
 import com.example.tugedeongjilproject.util.image.beomjoedosi
 import com.example.tugedeongjilproject.util.image.buddha
@@ -28,20 +29,20 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
     )
 
     private val noNameList = arrayListOf<ChatData>(
-        ChatData(angstart,"익명이","앙스타 신카이 카나타"),
-        ChatData(overwatch,"내 오른손의 흑염룡","오버워치2 할사람"),
         ChatData(null,"교회를 영어로","누구게~?"),
-        ChatData(null,"불건전한 닉네임의 소환사","나는 어린 18세"),
+        ChatData(overwatch,"내 오른손의 흑염룡","오버워치2 같이 할래?"),
+        ChatData(SPIDER_MAN2,"랜덤랜덤",""),
+        ChatData(null,"불건전한 닉네임의 소환사","나는 어린 18세 팔로우 해줘"),
+        ChatData(angstart,"익명이","앙스타 신카이 카나타"),
         ChatData(masterE,"떡튀순","나의 검은 당신의 것이오.."),
     )
 
     private val friendList = arrayListOf<ChatData>(
-        ChatData(cat,"김기영","우리집 고양이 영웅이"),
-        ChatData(canner,"임세현","준호야 죽어도 코드는 남아"),
-        ChatData(null,"문정민","잘가고"),
-        ChatData(buddha,"오상우","인생이란 뭘까.."),
-        ChatData(heart,"김민성","땡땡아 사랑해~~!"),
-        ChatData(heart,"주보미","나도"),
+        ChatData(cat,"김기영","아니 준호 우리팀 애들 자프 너무 안해"),
+        ChatData(canner,"임세현","준호야 코드 pr봐줘 ^^"),
+        ChatData(null,"문정민","너랑은 끝이야!"),
+        ChatData(buddha,"오상우","또 나만 갈구지 진짜"),
+        ChatData(heart,"김민성","아니 준호야.."),
     )
 
     override fun initView() {

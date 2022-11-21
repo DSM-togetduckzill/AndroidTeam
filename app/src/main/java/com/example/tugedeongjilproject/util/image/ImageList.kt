@@ -1,6 +1,7 @@
 package com.example.tugedeongjilproject.util.image
 
 const val SPIDER_MAN = "https://post-phinf.pstatic.net/MjAyMDEwMTRfMjQ2/MDAxNjAyNjUwMzQzMjUy.Hvj_0tnnqGvtqS1wv8GAnt27lvdsry0JALwxKpnufVIg.iGNVM-oym2XUFpC1NHEf_JmDAX6C6D2wPdx83TRshdsg.JPEG/spider-man-00.jpg?type=w1200"
+const val SPIDER_MAN2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXW8x30OT9U5P1UoTU_H73itqLv8udwd_Mgw&usqp=CAU"
 const val ZIBRI = "https://www.bizhankook.com/upload/bk/article/202003/thumb/19690-45330-sampleM.jpg"
 const val SON = "https://www.kukinews.com/data/kuk/image/2022/05/23/kuk202205230022.680x.0.jpg"
 const val KIMUICHAN = "https://scontent.xx.fbcdn.net/v/t1.15752-9/315287633_5768457503237785_5670059185674759609_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=aee45a&_nc_ohc=hlg9uGGZxfQAX9uLb3J&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSjbO_fuQ0ICIVtUfZNdUQFuU-Vpxb43OwafK8oLi4HFA&oe=639C1188"

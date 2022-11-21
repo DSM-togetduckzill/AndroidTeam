@@ -10,6 +10,7 @@ import com.example.tugedeongjilproject.R
 import com.example.tugedeongjilproject.base.BaseFragment
 import com.example.tugedeongjilproject.databinding.FragmentHomeBinding
 import com.example.tugedeongjilproject.home.room.EnterRoomActivity
+import com.example.tugedeongjilproject.util.WebViewHelperActivity
 import com.example.tugedeongjilproject.util.image.KIMJUNHO
 import com.example.tugedeongjilproject.util.image.KIMUICHAN
 import com.example.tugedeongjilproject.util.image.OHJEONGSU
@@ -50,6 +51,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
             mainFirstLayout.setOnClickListener {
+                val intent = Intent(requireActivity(), WebViewHelperActivity::class.java)
+                intent.putExtra("url","https://togetduckzill-fontend.vercel.app/spider")
+                intent.putExtra("header", "랜덤랜덤")
+                intent.putExtra("add",true)
+                startActivity(intent)
             }
             mainSecondLayout.setOnClickListener {
                 startActivity(Intent(requireActivity(), EnterRoomActivity::class.java))
