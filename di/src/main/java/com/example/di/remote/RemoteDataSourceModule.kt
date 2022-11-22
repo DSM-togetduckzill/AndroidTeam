@@ -6,7 +6,6 @@ import com.example.data.remote.datasource.RemoteFriendListDataSource
 import com.example.data.remote.datasource.RemoteFriendListDataSourceImpl
 import com.example.data.remote.datasource.RemoteSignInDataSource
 import com.example.data.remote.datasource.RemoteSignInDataSourceImpl
-import com.example.data.remote.error.ErrorHandler
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,13 +20,11 @@ object RemoteDataSourceModule {
     @Provides
     fun bindRemoteFriendListDataModule(
         friendListAPI: FriendListAPI,
-        errorHandler: ErrorHandler
-    ): RemoteFriendListDataSource = RemoteFriendListDataSourceImpl(friendListAPI,errorHandler)
+    ): RemoteFriendListDataSource = RemoteFriendListDataSourceImpl(friendListAPI)
 
     @Singleton
     @Provides
     fun bindRemoteSignInDataModule(
         signInAPI: SignInAPI,
-        errorHandler: ErrorHandler
-    ): RemoteSignInDataSource = RemoteSignInDataSourceImpl(signInAPI,errorHandler)
+    ): RemoteSignInDataSource = RemoteSignInDataSourceImpl(signInAPI)
 }

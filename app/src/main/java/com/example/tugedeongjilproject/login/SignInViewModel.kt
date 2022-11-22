@@ -1,5 +1,6 @@
 package com.example.tugedeongjilproject.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import com.example.domain.usecase.signin.DeleteAutoSignInUseCase
 import com.example.domain.usecase.signin.ChangeAutoSignInUseCase
 import com.example.domain.usecase.signin.SaveAutoSignInUseCase
 import com.example.domain.usecase.signin.SignInUseCase
+import com.example.tugedeongjilproject.util.basicErrorHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,7 +35,7 @@ class SignInViewModel @Inject constructor(
             }.onSuccess {
                 _signInSuccess.value = true
             }.onFailure {
-                _fail.value = it.message
+                _fail.value = basicErrorHandler(it.message.toString())
             }
         }
     }

@@ -3,7 +3,6 @@ package com.example.di.remote;
 
 import com.example.data.remote.api.FriendListAPI;
 import com.example.data.remote.datasource.RemoteFriendListDataSource;
-import com.example.data.remote.error.ErrorHandler;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
@@ -17,26 +16,23 @@ import javax.inject.Provider;
 public final class RemoteDataSourceModule_BindRemoteFriendListDataModuleFactory implements Factory<RemoteFriendListDataSource> {
   private final Provider<FriendListAPI> friendListAPIProvider;
 
-  private final Provider<ErrorHandler> errorHandlerProvider;
-
   public RemoteDataSourceModule_BindRemoteFriendListDataModuleFactory(
-      Provider<FriendListAPI> friendListAPIProvider, Provider<ErrorHandler> errorHandlerProvider) {
+      Provider<FriendListAPI> friendListAPIProvider) {
     this.friendListAPIProvider = friendListAPIProvider;
-    this.errorHandlerProvider = errorHandlerProvider;
   }
 
   @Override
   public RemoteFriendListDataSource get() {
-    return bindRemoteFriendListDataModule(friendListAPIProvider.get(), errorHandlerProvider.get());
+    return bindRemoteFriendListDataModule(friendListAPIProvider.get());
   }
 
   public static RemoteDataSourceModule_BindRemoteFriendListDataModuleFactory create(
-      Provider<FriendListAPI> friendListAPIProvider, Provider<ErrorHandler> errorHandlerProvider) {
-    return new RemoteDataSourceModule_BindRemoteFriendListDataModuleFactory(friendListAPIProvider, errorHandlerProvider);
+      Provider<FriendListAPI> friendListAPIProvider) {
+    return new RemoteDataSourceModule_BindRemoteFriendListDataModuleFactory(friendListAPIProvider);
   }
 
   public static RemoteFriendListDataSource bindRemoteFriendListDataModule(
-      FriendListAPI friendListAPI, ErrorHandler errorHandler) {
-    return Preconditions.checkNotNullFromProvides(RemoteDataSourceModule.INSTANCE.bindRemoteFriendListDataModule(friendListAPI, errorHandler));
+      FriendListAPI friendListAPI) {
+    return Preconditions.checkNotNullFromProvides(RemoteDataSourceModule.INSTANCE.bindRemoteFriendListDataModule(friendListAPI));
   }
 }
