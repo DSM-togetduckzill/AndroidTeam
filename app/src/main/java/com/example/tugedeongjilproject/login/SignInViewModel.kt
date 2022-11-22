@@ -49,6 +49,8 @@ class SignInViewModel @Inject constructor(
                 autoSignInUseCase.execute(Unit)
             }.onSuccess {
                 _signInSuccess.value = true
+            }.onFailure {
+
             }
         }
     }

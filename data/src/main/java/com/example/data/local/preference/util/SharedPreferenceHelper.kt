@@ -1,6 +1,7 @@
 package com.example.data.local.preference.util
 
 import android.content.SharedPreferences
+import android.util.Log
 import javax.inject.Inject
 
 class SharedPreferenceHelper @Inject constructor(
@@ -11,8 +12,10 @@ class SharedPreferenceHelper @Inject constructor(
             edit(it)
             it.apply()
         }
-    fun fetchStringPreference(key: String): String =
-        sharedPreferences.getString(key, null) ?: ""
+    fun fetchStringPreference(key: String): String {
+        Log.d("TAG", "fetchStringPreference: ")
+       return sharedPreferences.getString(key, null) ?: ""
+    }
 
     fun saveStringPreference(key: String, value: String) =
         editPreference { it.putString(key, value) }
