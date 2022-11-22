@@ -31,7 +31,6 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
     private val noNameList = arrayListOf<ChatData>(
         ChatData(null,"교회를 영어로","누구게~?"),
         ChatData(overwatch,"내 오른손의 흑염룡","오버워치2 같이 할래?"),
-        ChatData(SPIDER_MAN2,"랜덤랜덤","헉,알겠습니다"),
         ChatData(null,"불건전한 닉네임의 소환사","나는 어린 18세 팔로우 해줘"),
         ChatData(angstart,"익명이","안녕"),
         ChatData(masterE,"떡튀순","나의 검은 당신의 것이오.."),
