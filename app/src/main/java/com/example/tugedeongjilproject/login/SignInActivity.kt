@@ -18,12 +18,17 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
     private val signInViewModel: SignInViewModel by viewModels()
 
     override fun initView() {
-        binding.run {
 
+        signInViewModel.autoSignIn()
+
+        binding.run {
             tvSignUp.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
             btnSignIn.setOnClickListener {
                 signInViewModel.signIn(SignInEntity(etId.text.toString(), etPassword.text.toString()))
+                if(checkbox.isChecked){
+                    signInViewModel.saveAutoSignIn(SignInEntity(etId.text.toString(),etPassword.text.toString()))
+                }
             }
 
             tvSignUp.setOnClickListener {
@@ -36,7 +41,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
     override fun observeEvent() {
         signInViewModel.run {
-            signInSuccess.observe(this@SignInActivity){
+            signInSuccess.observe(this@SignInActivity) {
                 startActivity(Intent(this@SignInActivity, MainActivity::class.java))
                 finish()
             }
