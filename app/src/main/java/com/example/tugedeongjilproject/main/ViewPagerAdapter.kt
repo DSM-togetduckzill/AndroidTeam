@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.tugedeongjilproject.chat.ChatFragment
 import com.example.tugedeongjilproject.friend.FriendListFragment
 import com.example.tugedeongjilproject.home.HomeFragment
-import com.example.tugedeongjilproject.mypage.MypageFragment
+import com.example.tugedeongjilproject.mypage.MyPageFragment
 
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment){
     override fun getItemCount(): Int = 4
@@ -16,7 +16,7 @@ class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragme
             0 -> HomeFragment()
             1 -> ChatFragment()
             2 -> FriendListFragment()
-            else -> MypageFragment()
+            else -> MyPageFragment()
         }
     }
 
