@@ -23,6 +23,8 @@ class MyPageFragment: BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypa
     override fun initView() {
         val mainActivity = activity as MainActivity
 
+        myPageViewModel.lodeMyPage()
+
         binding.run {
             secondBox.setOnClickListener {
                 val intent = Intent(requireContext(), WebViewHelperActivity::class.java)
@@ -45,6 +47,19 @@ class MyPageFragment: BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypa
     }
 
     override fun observeEvent() {
+        myPageViewModel.run {
+            mypageInSuccess.observe(this@MyPageFragment) {
+                binding.run {
+                    nameUser.text = it.name
+                    introductionUser.text = it.introduce
+                    birthUser.text = it.birthday
+                    phoneUser.text = it.phone_number
+                }
+            }
+            fail.observe(this@MyPageFragment) {
+                showToast(it)
+            }
+        }
     }
 
 }
