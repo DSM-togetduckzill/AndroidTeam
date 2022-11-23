@@ -4,8 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="26"
-6-->C:\Git\AndroidTeam\di\src\main\AndroidManifest.xml
+6-->/Users/kimjunho/Desktop/github/AndroidTeam/di/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="32" />
-7-->C:\Git\AndroidTeam\di\src\main\AndroidManifest.xml
+7-->/Users/kimjunho/Desktop/github/AndroidTeam/di/src/main/AndroidManifest.xml
 8
 9</manifest>
