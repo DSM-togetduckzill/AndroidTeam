@@ -1,6 +1,7 @@
 package com.example.di.remote
 
 import android.util.Log
+import com.example.data.interceptor.AuthorizationInterceptor
 import com.example.data.remote.api.FriendListAPI
 import com.example.data.remote.api.SignInAPI
 import dagger.Module
@@ -27,10 +28,12 @@ object RetrofitModule {
     @Singleton
     @Provides
     fun provideOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        authorizationInterceptor: AuthorizationInterceptor
     ): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(authorizationInterceptor)
             .build()
 
     @Singleton

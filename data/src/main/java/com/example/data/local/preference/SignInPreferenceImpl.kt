@@ -6,6 +6,11 @@ import javax.inject.Inject
 class SignInPreferenceImpl @Inject constructor(
     private val s: SharedPreferenceHelper
 ): SignInPreference {
+    override suspend fun saveAccessToken(accessToken: String) =
+        s.saveStringPreference(ACCESS_TOKEN, accessToken)
+
+    override suspend fun fetchAccessToken(): String =
+        s.fetchStringPreference(ACCESS_TOKEN)
 
     override suspend fun fetchId(): String =
         s.fetchStringPreference(ID)
@@ -25,6 +30,7 @@ class SignInPreferenceImpl @Inject constructor(
     }
 
     companion object Key {
+        const val ACCESS_TOKEN = "ACCESS_TOKEN"
         const val ID = "ID"
         const val PASSWORD = "PASSWORD"
     }

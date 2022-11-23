@@ -1,5 +1,6 @@
 package com.example.data.remote.repository
 
+import android.util.Log
 import com.example.data.local.datasource.LocalSignInDataSource
 import com.example.data.remote.datasource.RemoteSignInDataSource
 import com.example.domain.entity.SignInEntity
@@ -10,8 +11,10 @@ class SignInRepositoryImpl @Inject constructor(
     private val remoteSignInDataSource: RemoteSignInDataSource,
     private val localSignInDataSource: LocalSignInDataSource
 ): SignInRepository {
-    override suspend fun signIn(signInEntity: SignInEntity) =
-        remoteSignInDataSource.signIn(signInEntity)
+    override suspend fun signIn(signInEntity: SignInEntity) {
+        val tokenEntity= remoteSignInDataSource.signIn(signInEntity)
+        localSignInDataSource.saveToken(tokenEntity)
+    }
 
     override suspend fun autoSignIn() {
         remoteSignInDataSource.signIn(localSignInDataSource.autoSignIn())
