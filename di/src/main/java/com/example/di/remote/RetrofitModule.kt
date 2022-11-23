@@ -3,6 +3,7 @@ package com.example.di.remote
 import android.util.Log
 import com.example.data.interceptor.AuthorizationInterceptor
 import com.example.data.remote.api.FriendListAPI
+import com.example.data.remote.api.MyPageAPI
 import com.example.data.remote.api.SignInAPI
 import dagger.Module
 import dagger.Provides
@@ -60,4 +61,11 @@ object RetrofitModule {
         retrofit: Retrofit
     ): SignInAPI =
         retrofit.create(SignInAPI::class.java)
+
+    @Singleton
+    @Provides
+    fun provideMyPageAPI(
+        retrofit: Retrofit
+    ): MyPageAPI =
+        retrofit.create(MyPageAPI::class.java)
 }

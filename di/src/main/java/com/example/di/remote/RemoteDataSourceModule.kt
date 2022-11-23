@@ -1,11 +1,9 @@
 package com.example.di.remote
 
 import com.example.data.remote.api.FriendListAPI
+import com.example.data.remote.api.MyPageAPI
 import com.example.data.remote.api.SignInAPI
-import com.example.data.remote.datasource.RemoteFriendListDataSource
-import com.example.data.remote.datasource.RemoteFriendListDataSourceImpl
-import com.example.data.remote.datasource.RemoteSignInDataSource
-import com.example.data.remote.datasource.RemoteSignInDataSourceImpl
+import com.example.data.remote.datasource.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,4 +25,10 @@ object RemoteDataSourceModule {
     fun bindRemoteSignInDataModule(
         signInAPI: SignInAPI,
     ): RemoteSignInDataSource = RemoteSignInDataSourceImpl(signInAPI)
+
+    @Singleton
+    @Provides
+    fun bindRemoteMyPageDataModule(
+        myPageAPI: MyPageAPI,
+    ): RemoteMyPageDataSource = RemoteMyPageDataSourceImpl(myPageAPI)
 }
