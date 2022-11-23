@@ -33,7 +33,7 @@ class SignInViewModel @Inject constructor(
 
     fun signIn(signInEntity: SignInEntity){
         viewModelScope.launch {
-            kotlin.runCatching {
+            kotlㄷㅍ그,ㅜ허ㅏㅍㅋin.runCatching {
                 signInUseCase.execute(signInEntity)
             }.onSuccess {
                 _signInSuccess.value = true
